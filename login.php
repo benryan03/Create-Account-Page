@@ -1,4 +1,5 @@
 <?php
+session_start();
 $username = "";
 $password = "";
 $error = "";
@@ -30,7 +31,8 @@ if (!empty($_POST["submit"])){
 
     if ($isPasswordCorrect == true){
         //Login success
-        header("Location:login_success.html");
+        $_SESSION["loggedInUser"] = $username;
+        header("Location:login_success.php");
     }
     else {
         //Login fail
