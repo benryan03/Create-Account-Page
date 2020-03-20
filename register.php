@@ -79,7 +79,7 @@ if (!empty($_POST["submit"])){                  //if submit button clicked, then
         }
         if ($errorStatus == false){
             //Open success page
-            header("Location:success.html");
+            header("Location:register_success.html");
         }
 
 
