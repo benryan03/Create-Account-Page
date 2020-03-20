@@ -98,10 +98,10 @@ if (!empty($_POST["submit"])){                  //if submit button clicked, then
 <input type="text" name="username" placeholder="Username" value="<?php echo htmlentities($username) ?>"><br>
 <span class="error"><?php echo "$usernameError" ?></span><br><br>
 
-<input type="text" name="password" placeholder="Password" value="<?php echo htmlentities($password) ?>"><br>
+<input type="password" name="password" placeholder="Password" value="<?php echo htmlentities($password) ?>"><br>
 <span class="error"><?php echo "$passwordError" ?></span><br><br>
 
-<input type="text" name="confirmPassword" placeholder="Confirm Password" value="<?php echo htmlentities($confirmPassword) ?>"><br>
+<input type="password" name="confirmPassword" placeholder="Confirm Password" value="<?php echo htmlentities($confirmPassword) ?>"><br>
 <span class="error"><?php echo "$confirmPasswordError" ?></span><br><br>
 
 <input type="submit" value="Submit" name="submit"><br>
