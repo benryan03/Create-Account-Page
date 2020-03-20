@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <html>
 <head>
 <title>Register account</title>
@@ -12,7 +16,8 @@
 </div>
 
 <div class="content">
-    Login successful.
+    Login successful.<br><br>
+    Current user: <?php echo $_SESSION["loggedInUser"] ?>
 </div>
 
 </center>
