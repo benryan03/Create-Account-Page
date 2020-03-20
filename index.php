@@ -67,12 +67,19 @@ if (!empty($_POST["submit"])){                  //if submit button clicked, then
 
         //Error messages 
         if (!$conn){
+            $errorStatus = true;
             $submitError = "Error connecting to database.";
         }
         if (!$writeToDatabase){
+            $errorStatus = true;
             $submitError = "Error writing to database.";
             //print_r(sqlsrv_errors());
         }
+        if ($errorStatus == false){
+            //Open success page
+            header("Location:success.html");
+        }
+
 
     }
     //print_r(sqlsrv_errors());
@@ -90,7 +97,7 @@ if (!empty($_POST["submit"])){                  //if submit button clicked, then
 <center>
 
 <div class="header">
-    <h1><a href="register.php">Register account</a></h1>
+    <h1><a href="index.php">Register account</a></h1>
 </div>
 
 <div class="content">
