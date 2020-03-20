@@ -14,7 +14,7 @@ if (!empty($_POST["submit"])){                  //if submit button clicked, then
     $username = trim($_POST["username"]);       //trim() removes whitespace from  both sides of input
     $username = htmlspecialchars($username);    //convert html characters to html entities
 
-    if (empty($username)){
+    if (empty($username)){  //Check if username field is empty
         $usernameError = "Please enter a username.";
         $errorStatus = true;
     }
@@ -40,20 +40,22 @@ if (!empty($_POST["submit"])){                  //if submit button clicked, then
     }
 
     $password = $_POST["password"];
-    if (empty($password)){
+    if (empty($password)){ //Check if password field is empty
         $passwordError = "Please enter a password.";
         $errorStatus = true;
     }
     $confirmPassword = $_POST["confirmPassword"];
-    if (empty($confirmPassword)){
+    if (empty($confirmPassword)){ //Check if confirm password field is empty
         $confirmPasswordError = "Please confirm password.";
         $errorStatus = true;
     }
-        if ($confirmPassword != $password){
+    if ($confirmPassword != $password){ //Check if passwords match
         $confirmPasswordError = "Passwords must match.";
         $errorStatus = true;
     }
     if ($errorStatus == false){
+        //Convert password to hash
+        $password = password_hash($password, PASSWORD_DEFAULT);
 
         //To calculate new user ID, count number of rows in database and add 1
         $countExistingUsersQuery = "SELECT * FROM Users";
